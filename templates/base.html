@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Layout{% endblock %}</title>
+
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+    <!-- <div class="layout"> -->
+        <header>
+            <nav>
+                <button onclick="collapse()">&#9776;</button>
+                <ul>
+                    <li><a href="/" class="navlink">Introduction</a></li>
+                    <li class="sublink">
+                        <a href="/platinum" class="navlink">Platinum</a>
+                        <ul class="sublink-content">
+                            <li><a href="/platinum/dp" class="navlink">DP Setup</a></li>
+                            <li><a href="/platinum/pt" class="navlink">Platinum Setup</a></li>
+                        </ul>
+                    </li>
+                    <li class="sublink">
+                        <a href="/hgss" class="navlink">HGSS</a>
+                        <ul class="sublink-content">
+                            <li><a href="/hgss/dp" class="navlink">DP Setup</a></li>
+                            <li><a href="/hgss/hgss" class="navlink">HGSS Setup</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container">
+            {% block content %}{% endblock %}
+        </main>
+    <!-- </div> -->
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>
