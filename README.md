@@ -1,4 +1,4 @@
-# hgss_ace_install_instructions
+# HGSS/Platinum ACE Installation Guide Website
 
 author: Rebecca Bruner<br>
 date: 28 March 2026
