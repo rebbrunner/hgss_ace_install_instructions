@@ -1,0 +1,11 @@
+[project]
+name = "src"
+version = "1.0.0"
+description = "A website for hosting instructions on how to install HGSS and Platinum ACE exploits"
+dependencies = [
+    "flask",
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
