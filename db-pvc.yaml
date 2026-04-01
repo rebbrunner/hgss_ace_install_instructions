@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgress-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      - 500Mb
+  storageClassName: standard

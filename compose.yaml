@@ -4,6 +4,15 @@ services:
     container_name: hgss_pt_install_guide
     ports:
       - "8080:8080"
+    tty: true
+  
+  db:
+    image: postgres:14.22-trixie
+    restart: always
+    shm_size: 128Mb
+    environment:
+      POSTGRES_PASSWORD: ${PASS}
+    ports:
+      - "5432:5432"
     volumes:
       - "D:/Dev/hgss_ace_install_instructions:/home/rebs/dev"
-    tty: true
