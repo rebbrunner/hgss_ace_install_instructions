@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.38.0 (a8f5d1cbd)
   labels:
     io.kompose.service: hgss-pt-install-guide
-  name: backend-api
+  name: backend-svc
 spec:
   ports:
     - name: "8080"

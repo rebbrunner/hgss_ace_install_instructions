@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS documentation
+DROP TABLE IF EXISTS documentation;
 
 CREATE TABLE documentation (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    pid INTEGER,
+    id SERIAL PRIMARY KEY,
+    pid INTEGER NULL,
     title TEXT,
     content TEXT,
-    FOREIGN KEY(pid) REFERENCES documentation(id)
-)
+    FOREIGN KEY(pid) REFERENCES documentation(id) ON DELETE SET NULL
+);

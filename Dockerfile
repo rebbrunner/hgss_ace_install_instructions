@@ -14,8 +14,8 @@ RUN git clone https://github.com/pyenv/pyenv.git .pyenv
 ENV PYENV_ROOT=$HOME/.pyenv
 ENV PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
-RUN pyenv install 3.9.10
-RUN pyenv global 3.9.10
+RUN pyenv install 3.9.13
+RUN pyenv global 3.9.13
 RUN pyenv rehash
 
 RUN python -m venv env

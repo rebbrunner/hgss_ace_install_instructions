@@ -7,7 +7,6 @@ metadata:
   labels:
     io.kompose.service: db
   name: db
-  namespace: backend
 spec:
   replicas: 1
   selector:
@@ -25,11 +24,16 @@ spec:
     spec:
       containers:
         - env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: environment
+                  key: DB_URL
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: environment
-                  key: PASS
+                  key: POSTGRES_PASSWORD
           image: postgres:14.22-trixie
           name: db
           ports:
@@ -42,4 +46,4 @@ spec:
       volumes:
         - name: postgress-storage
           persistentVolumeClaim:
-            claimName: postgress-pvc
+            claimName: postgres-pvc
