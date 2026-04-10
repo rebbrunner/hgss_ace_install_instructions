@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+    kompose.version: 1.38.0 (a8f5d1cbd)
+  labels:
+    io.kompose.service: db
+  name: db
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+        kompose.version: 1.38.0 (a8f5d1cbd)
+      labels:
+        io.kompose.service: db
+    spec:
+      containers:
+        - env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: environment
+                  key: DB_URL
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: environment
+                  key: POSTGRES_PASSWORD
+          image: postgres:14.22-trixie
+          name: db
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgress-storage
+      restartPolicy: Always
+      volumes:
+        - name: postgress-storage
+          persistentVolumeClaim:
+            claimName: postgres-pvc
