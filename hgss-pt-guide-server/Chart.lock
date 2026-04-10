@@ -1,0 +1,9 @@
+dependencies:
+- name: metallb
+  repository: https://metallb.github.io/metallb
+  version: 0.15.3
+- name: nginx-ingress
+  repository: https://helm.nginx.com/stable
+  version: 2.5.1
+digest: sha256:f267502fc1a74731c6a151232fb4d8dec86cbb6cba497438376bb913bc89e66a
+generated: "2026-04-09T19:41:12.2299428-04:00"

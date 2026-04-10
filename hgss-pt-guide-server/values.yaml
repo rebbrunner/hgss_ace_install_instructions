@@ -1,0 +1,7 @@
+repliaCount: 1
+
+metallb:
+  enabled: false
+
+nginx-ingress:
+  enabled: false
